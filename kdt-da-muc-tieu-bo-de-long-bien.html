@@ -147,6 +147,14 @@
   }
   .sticky-cta .row{max-width:1080px;margin:0 auto;display:flex;gap:10px;align-items:stretch}
   .sticky-cta a{flex:1;justify-content:center;padding:14px 10px;font-size:15.5px}
+
+  /* ===== TAB NAV ===== */
+  .tabbar{position:sticky;top:0;z-index:60;background:rgba(10,14,11,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,162,39,.35)}
+  .tabbar-in{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+  .tabbar-in::-webkit-scrollbar{display:none}
+  .tabbar .tab{flex:0 0 auto;padding:9px 16px;border-radius:999px;color:#e9e4d2;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid transparent;white-space:nowrap}
+  .tabbar .tab:hover{border-color:rgba(201,162,39,.55);color:#fff}
+  .tabbar .tab.is-active{background:linear-gradient(180deg,#e7cb7d,#c9a227);color:#171a12;font-weight:800}
 </style>
 </head>
 <body>
@@ -161,6 +169,18 @@
     </a>
   </div>
 </div>
+
+<!-- Tab navigation -->
+<nav class="tabbar" aria-label="Điều hướng chính">
+  <div class="wrap tabbar-in">
+    <a class="tab" href="index.html">Trang chủ</a>
+    <a class="tab" href="index.html#danh-sach">Căn đang bán</a>
+    <a class="tab is-active" href="index.html#tin-tuc">Tin tức</a>
+    <a class="tab" href="index.html#danh-muc">Danh mục 43 căn</a>
+    <a class="tab" href="index.html#lien-he">Liên hệ</a>
+  </div>
+</nav>
+
 
 <article>
   <div class="article-wrap">
