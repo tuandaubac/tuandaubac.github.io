@@ -341,13 +341,13 @@
   }
 
   /* ---------- full catalog ---------- */
-  .cat-tools{border:1px solid var(--line);border-radius:18px;background:var(--bg-soft);padding:16px;margin:0 0 26px;position:sticky;top:64px;z-index:40;box-shadow:0 10px 28px rgba(20,26,21,.10)}
+  .cat-tools{border:1px solid var(--line);border-radius:18px;background:var(--bg-soft);padding:16px;margin:0 0 26px}
   .cat-search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:11px 16px}
   .cat-search svg{width:19px;height:19px;flex:none;stroke:var(--gold)}
   .cat-search input{border:0;outline:0;background:none;font:inherit;font-size:15px;color:var(--ink);width:100%}
   .cat-selects{display:grid;gap:8px;margin-top:10px}
   .cat-selects select{font:inherit;font-size:14.5px;font-weight:600;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;width:100%}
-  @media (min-width:720px){.cat-selects{grid-template-columns:repeat(4,1fr)}}
+  @media (min-width:720px){.cat-selects{grid-template-columns:1fr}}
   .cat-count{margin:12px 2px 0;font-size:13.5px;font-weight:700;color:var(--muted)}
   .cat-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
   .cat-chip{font:inherit;font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
@@ -1449,7 +1449,7 @@
   <div class="wrap">
     <p class="kicker">Toàn bộ danh mục · Từ web Tuấn Đầu Bạc BĐS</p>
     <h2>47 căn theo 5 khu vực — Bồ Đề · Long Biên · Việt Hưng · Phúc Lợi · Gia Lâm</h2>
-    <p class="lead">Toàn bộ các căn đang rao trên web cũ của Tuấn Đầu Bạc, xếp theo phường và phố như trên web gốc. Dùng ô tìm kiếm và bộ lọc bên dưới để tìm nhanh theo khu vực, phố, khoảng giá và loại hình nhà/đất, rồi bấm “Xem chi tiết” để đọc mô tả đầy đủ và xem thư viện ảnh của từng căn.</p>
+    <p class="lead">Toàn bộ các căn đang rao trên web cũ của Tuấn Đầu Bạc, xếp theo phường và phố như trên web gốc. Dùng ô tìm kiếm và bộ lọc bên dưới để tìm nhanh theo khu vực, rồi bấm “Xem chi tiết” để đọc mô tả đầy đủ và xem thư viện ảnh của từng căn.</p>
 
     <div class="cat-tools">
       <label class="cat-search">
@@ -1457,61 +1457,16 @@
         <input type="search" id="catSearch" placeholder="Tìm theo tên căn… (vd: Ngọc Lâm, Tư Đình, Trạm)" aria-label="Tìm theo tên căn" />
       </label>
       <div class="cat-selects">
-        <select id="catWard" aria-label="Lọc theo phường">
-          <option value="all">Tất cả phường</option>
+        <select id="catWard" aria-label="Lọc theo khu vực">
+          <option value="all">Tất cả khu vực</option>
           <option value="bo-de">Phường Bồ Đề (12)</option>
           <option value="long-bien">Phường Long Biên (28)</option>
           <option value="viet-hung">Phường Việt Hưng (1)</option>
           <option value="phuc-loi">Phường Phúc Lợi (2)</option>
           <option value="gia-lam">Khu vực Gia Lâm (4)</option>
         </select>
-        <select id="catStreet" aria-label="Lọc theo phố">
-          <option value="all">Tất cả phố</option>
-          <option value="bo-de" data-ward="bo-de">Bồ Đề</option>
-          <option value="ngoc-lam" data-ward="bo-de">Ngọc Lâm</option>
-          <option value="lam-du" data-ward="bo-de">Lâm Du</option>
-          <option value="nguyen-van-cu" data-ward="bo-de">Nguyễn Văn Cừ</option>
-          <option value="phu-vien" data-ward="bo-de">Phú Viên</option>
-          <option value="duong-bat-khoi" data-ward="long-bien">Đường Bát Khối</option>
-          <option value="pho-tram" data-ward="long-bien">Phố Trạm</option>
-          <option value="dam-quang-trung" data-ward="long-bien">Đàm Quang Trung</option>
-          <option value="xuan-do-cu-khoi" data-ward="long-bien">Xuân Đỗ (Cự Khối)</option>
-          <option value="hoa-dong-cu-khoi" data-ward="long-bien">Hoa Động (Cự Khối)</option>
-          <option value="co-linh" data-ward="long-bien">Cổ Linh</option>
-          <option value="vu-dinh-tung" data-ward="long-bien">Vũ Đình Tụng</option>
-          <option value="tu-dinh" data-ward="long-bien">Tư Đình</option>
-          <option value="nguyen-cao-luyen" data-ward="viet-hung">Nguyễn Cao Luyện</option>
-          <option value="nguyen-van-linh" data-ward="phuc-loi">Nguyễn Văn Linh</option>
-          <option value="ly-thanh-tong" data-ward="gia-lam">Lý Thánh Tông</option>
-          <option value="dong-du" data-ward="gia-lam">Đông Dư</option>
-          <option value="an-dao" data-ward="gia-lam">An Đào</option>
-          <option value="nguyen-khiem-ich" data-ward="gia-lam">Nguyễn Khiêm Ích</option>
-        </select>
-        <select id="catPrice" aria-label="Lọc theo khoảng giá">
-          <option value="all">Mọi khoảng giá</option>
-          <option value="under10">Dưới 10 tỷ</option>
-          <option value="10-15">Từ 10 – 15 tỷ</option>
-          <option value="15-20">Từ 15 – 20 tỷ</option>
-          <option value="over20">Trên 20 tỷ</option>
-          <option value="lien-he">Giá liên hệ</option>
-        </select>
-        <select id="catType" aria-label="Lọc theo loại hình">
-          <option value="all">Nhà &amp; đất</option>
-          <option value="nha">Chỉ nhà</option>
-          <option value="dat">Chỉ đất</option>
-        </select>
-      </div>
-      <div class="cat-chips" id="catChips">
-        <button type="button" class="cat-chip on" data-chip="all">Tất cả</button>
-        <button type="button" class="cat-chip" data-chip="nha">Nhà</button>
-        <button type="button" class="cat-chip" data-chip="dat">Đất</button>
-        <button type="button" class="cat-chip" data-chip="under10">Dưới 10 tỷ</button>
-        <button type="button" class="cat-chip" data-chip="10-15">10–15 tỷ</button>
-        <button type="button" class="cat-chip" data-chip="15-20">15–20 tỷ</button>
-        <button type="button" class="cat-chip" data-chip="over20">Trên 20 tỷ</button>
       </div>
       <p class="cat-count" id="catCount">Hiển thị 47 / 47 căn</p>
-      <button type="button" class="cat-reset" id="catReset">Xóa bộ lọc</button>
     </div>
 
     <div class="cat-group" data-group-ward="bo-de" data-group-street="bo-de">
@@ -4802,7 +4757,7 @@
   // Catalog details are full pages rendered in place (Dam Tranh style);
   // "Xem chi tiết" links are plain anchors that scroll to the detail page.
 
-  // Catalog search + filters
+  // Catalog search + area filter
   function norm(s){
     return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
   }
@@ -4810,34 +4765,14 @@
   var catGroups = Array.prototype.slice.call(document.querySelectorAll('.cat-group'));
   var elSearch = document.getElementById('catSearch');
   var elWard = document.getElementById('catWard');
-  var elStreet = document.getElementById('catStreet');
-  var elPrice = document.getElementById('catPrice');
-  var elType = document.getElementById('catType');
   var elCount = document.getElementById('catCount');
-  function priceMatch(pv, range){
-    if(range === 'all') return true;
-    if(range === 'lien-he') return pv === 'lien-he';
-    if(pv === 'lien-he') return false;
-    var v = parseFloat(pv);
-    if(range === 'under10') return v < 10;
-    if(range === '10-15') return v >= 10 && v < 15;
-    if(range === '15-20') return v >= 15 && v < 20;
-    if(range === 'over20') return v >= 20;
-    return true;
-  }
   function applyCat(){
     var q = norm(elSearch.value);
-    var w = elWard.value, st = elStreet.value, pr = elPrice.value;
-    var ty = elType ? elType.value : 'all';
+    var w = elWard.value;
     var shown = 0;
     catCards.forEach(function(c){
       var ok = true;
       if(w !== 'all' && c.getAttribute('data-ward') !== w) ok = false;
-      if(st !== 'all' && c.getAttribute('data-street') !== st) ok = false;
-      if(!priceMatch(c.getAttribute('data-price'), pr)) ok = false;
-      var isDat = norm(c.getAttribute('data-name')).indexOf('lo dat') !== -1;
-      if(ty === 'nha' && isDat) ok = false;
-      if(ty === 'dat' && !isDat) ok = false;
       if(q && norm(c.getAttribute('data-name')).indexOf(q) === -1) ok = false;
       c.classList.toggle('hidden', !ok);
       if(ok) shown++;
@@ -4846,48 +4781,11 @@
       var any = g.querySelector('.cat-card:not(.hidden)');
       g.classList.toggle('hidden', !any);
     });
-    elCount.textContent = 'Hiển thị ' + shown + ' / 47 căn' + (shown === 0 ? ' — không có căn nào khớp, anh/chị thử bỏ bớt điều kiện lọc.' : '');
-    if(typeof syncChips === 'function') syncChips();
+    elCount.textContent = 'Hiển thị ' + shown + ' / 47 căn' + (shown === 0 ? ' — không có căn nào khớp, anh/chị thử đổi khu vực hoặc từ khóa khác.' : '');
   }
   if(elSearch){
     elSearch.addEventListener('input', applyCat);
-    elWard.addEventListener('change', function(){
-      var opt = elStreet.querySelector('option[value="' + elStreet.value + '"]');
-      if(opt && opt.getAttribute('data-ward') && elWard.value !== 'all' && opt.getAttribute('data-ward') !== elWard.value) elStreet.value = 'all';
-      applyCat();
-    });
-    elStreet.addEventListener('change', function(){
-      var opt = elStreet.querySelector('option[value="' + elStreet.value + '"]');
-      if(opt && opt.getAttribute('data-ward')) elWard.value = opt.getAttribute('data-ward');
-      applyCat();
-    });
-    elPrice.addEventListener('change', applyCat);
-    if(elType) elType.addEventListener('change', applyCat);
-    var chipWrap = document.getElementById('catChips');
-    var syncChips = function(){
-      if(!chipWrap) return;
-      var t = elType ? elType.value : 'all', p = elPrice.value, key = null;
-      if(t !== 'all' && p === 'all') key = t;
-      else if(p !== 'all' && t === 'all') key = p;
-      else if(t === 'all' && p === 'all') key = 'all';
-      chipWrap.querySelectorAll('.cat-chip').forEach(function(ch){ ch.classList.toggle('on', ch.getAttribute('data-chip') === key); });
-    };
-    if(chipWrap){
-      chipWrap.addEventListener('click', function(e){
-        var ch = e.target.closest ? e.target.closest('.cat-chip') : null;
-        if(!ch) return;
-        var k = ch.getAttribute('data-chip');
-        if(k === 'all'){ elSearch.value = ''; elWard.value = 'all'; elStreet.value = 'all'; elPrice.value = 'all'; if(elType) elType.value = 'all'; }
-        else if(k === 'nha' || k === 'dat'){ if(elType) elType.value = k; elPrice.value = 'all'; }
-        else { elPrice.value = k; if(elType) elType.value = 'all'; }
-        applyCat();
-      });
-    }
-    var elReset = document.getElementById('catReset');
-    if(elReset) elReset.addEventListener('click', function(){
-      elSearch.value = ''; elWard.value = 'all'; elStreet.value = 'all'; elPrice.value = 'all'; if(elType) elType.value = 'all';
-      applyCat();
-    });
+    elWard.addEventListener('change', applyCat);
   }
 })();
 </script>
