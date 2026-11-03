@@ -636,6 +636,15 @@
     .btn:hover{transform:none}
   }
 
+
+  /* ===== TAB NAV ===== */
+  .tabbar{position:sticky;top:0;z-index:60;background:rgba(10,14,11,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,162,39,.35)}
+  .tabbar-in{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+  .tabbar-in::-webkit-scrollbar{display:none}
+  .tabbar .tab{flex:0 0 auto;padding:9px 16px;border-radius:999px;color:#e9e4d2;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid transparent;white-space:nowrap;transition:all .18s ease}
+  .tabbar .tab:hover{border-color:rgba(201,162,39,.55);color:#fff}
+  .tabbar .tab.is-active{background:linear-gradient(180deg,#e7cb7d,#c9a227);color:#171a12;font-weight:800}
+  html{scroll-padding-top:66px}
 </style>
 </head>
 <body>
@@ -651,8 +660,19 @@
   </div>
 </div>
 
+<!-- Tab navigation -->
+<nav class="tabbar" aria-label="Điều hướng chính">
+  <div class="wrap tabbar-in">
+    <a class="tab is-active" href="#trang-chu" data-spy="trang-chu">Trang chủ</a>
+    <a class="tab" href="#danh-sach" data-spy="danh-sach">Căn đang bán</a>
+    <a class="tab" href="#tin-tuc" data-spy="tin-tuc">Tin tức</a>
+    <a class="tab" href="#danh-muc" data-spy="danh-muc">Danh mục 43 căn</a>
+    <a class="tab" href="#lien-he" data-spy="lien-he">Liên hệ</a>
+  </div>
+</nav>
+
 <!-- Portfolio hero -->
-<section class="portfolio-hero">
+<section class="portfolio-hero" id="trang-chu">
   <div class="wrap">
     <p class="kicker" style="color:var(--gold-bright)">Tuấn Đầu Bạc · Bất động sản Long Biên – Gia Lâm</p>
     <h1>8 căn nổi bật tại <em>Long Biên</em> — và toàn bộ 43 căn trong danh mục bên dưới</h1>
@@ -4299,7 +4319,7 @@
 </section>
 
 <!-- Seller / contact -->
-<section class="block">
+<section class="block" id="lien-he">
   <div class="wrap">
     <div class="seller">
       <div>
@@ -4636,6 +4656,20 @@
       }
     });
   }
+})();
+</script>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabbar .tab[data-spy]');
+  if(!tabs.length||!('IntersectionObserver' in window))return;
+  function setActive(id){tabs.forEach(function(t){t.classList.toggle('is-active',t.getAttribute('data-spy')===id);});}
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)setActive(e.target.id);});
+  },{rootMargin:'-25% 0px -65% 0px'});
+  ['trang-chu','danh-sach','tin-tuc','danh-muc','lien-he'].forEach(function(id){
+    var el=document.getElementById(id);if(el)obs.observe(el);
+  });
 })();
 </script>
 </body>
