@@ -415,6 +415,15 @@
     html{scroll-behavior:auto}
     .gallery img{transition:none}
   }
+
+  /* ===== TABBAR ===== */
+  html{scroll-padding-top:64px}
+  .tabbar{position:sticky;top:0;z-index:60;background:rgba(10,14,11,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,162,39,.35)}
+  .tabbar-in{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+  .tabbar-in::-webkit-scrollbar{display:none}
+  .tabbar .tab{flex:0 0 auto;padding:9px 16px;border-radius:999px;color:#e9e4d2;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid transparent;white-space:nowrap}
+  .tabbar .tab:hover{border-color:rgba(201,162,39,.55);color:#fff}
+  .tabbar .tab.is-active{background:linear-gradient(180deg,#e7cb7d,#c9a227);color:#171a12;font-weight:800}
 </style>
 </head>
 <body>
@@ -430,8 +439,18 @@
   </div>
 </div>
 
+<nav class="tabbar" aria-label="Điều hướng chính">
+  <div class="wrap tabbar-in">
+    <a class="tab is-active" href="#trang-chu">Trang chủ</a>
+    <a class="tab" href="#danh-sach">Căn đang bán</a>
+    <a class="tab" href="#tin-tuc">Tin tức</a>
+    <a class="tab" href="#danh-muc">Danh mục 43 căn</a>
+    <a class="tab" href="#lien-he">Liên hệ</a>
+  </div>
+</nav>
+
 <!-- Portfolio hero -->
-<section class="portfolio-hero">
+<section class="portfolio-hero" id="trang-chu">
   <div class="wrap">
     <p class="kicker" style="color:var(--gold-bright)">Tuấn Đầu Bạc · Bất động sản Long Biên – Gia Lâm</p>
     <h1>8 căn nổi bật tại <em>Long Biên</em> — và toàn bộ 43 căn trong danh mục bên dưới</h1>
@@ -4415,6 +4434,20 @@
       }
     });
   }
+})();
+</script>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabbar .tab'));
+  if(!tabs.length||!('IntersectionObserver' in window))return;
+  var map={};
+  tabs.forEach(function(t){var h=t.getAttribute('href');if(h&&h.charAt(0)==='#')map[h.slice(1)]=t;});
+  function setActive(id){tabs.forEach(function(t){t.classList.toggle('is-active',map[id]===t);});}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)setActive(e.target.id);});
+  },{rootMargin:'-25% 0px -65% 0px'});
+  Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el);});
 })();
 </script>
 </body>
