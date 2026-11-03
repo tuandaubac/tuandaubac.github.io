@@ -424,6 +424,14 @@
   .tabbar .tab{flex:0 0 auto;padding:9px 16px;border-radius:999px;color:#e9e4d2;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid transparent;white-space:nowrap}
   .tabbar .tab:hover{border-color:rgba(201,162,39,.55);color:#fff}
   .tabbar .tab.is-active{background:linear-gradient(180deg,#e7cb7d,#c9a227);color:#171a12;font-weight:800}
+
+  /* ===== CONTACT GRID ===== */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:18px}
+  .contact-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:inherit}
+  .contact-item svg{width:20px;height:20px;stroke:var(--gold);flex:0 0 auto;margin-top:2px}
+  .contact-item b{display:block;font-size:15px;color:var(--ink)}
+  .contact-item span{display:block;font-size:13.5px;color:var(--ink-2);margin-top:2px;line-height:1.45}
+  a.contact-item:hover{border-color:var(--gold-bright)}
 </style>
 </head>
 <body>
@@ -4099,6 +4107,9 @@
 <!-- Seller / contact -->
 <section class="block" id="lien-he">
   <div class="wrap">
+    <p class="kicker">Liên hệ</p>
+    <h2>Liên hệ Tuấn Đầu Bạc</h2>
+    <p class="lead" style="margin-bottom:20px">Tư vấn mua bán nhà đất thổ cư, nhà phân lô tại Long Biên – Gia Lâm. Anh/chị gọi điện hoặc nhắn Zalo — em tư vấn đúng thông tin thật của từng căn và hẹn xem nhà tận nơi.</p>
     <div class="seller">
       <div>
         <div class="who">
@@ -4121,6 +4132,15 @@
           Nhắn Zalo
         </a>
       </div>
+    </div>
+
+    <div class="contact-grid">
+      <a class="contact-item" href="tel:+84941507815" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div><b>Điện thoại</b><span>0941 507 815 — gọi trực tiếp để xem nhà</span></div></a>
+      <a class="contact-item" href="https://zalo.me/0941507815" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><div><b>Zalo</b><span>Nhắn Zalo 0941 507 815 — gửi vị trí, sổ đỏ từng căn</span></div></a>
+      <a class="contact-item" href="https://www.facebook.com/122144414811096325" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><div><b>Facebook</b><span>Page TUẤN ĐẦU BẠC — bài đăng nhà mới mỗi ngày</span></div></a>
+      <a class="contact-item" href="https://www.tiktok.com/@tuandaubacbds" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><div><b>TikTok</b><span>@tuandaubacbds — video xem nhà thực tế</span></div></a>
+      <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Khu vực phục vụ</b><span>Long Biên – Gia Lâm, Hà Nội — xem nhà tận nơi theo hẹn</span></div></div>
+      <a class="contact-item" href="https://tuandaubac.github.io" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><div><b>Website</b><span>tuandaubac.github.io — toàn bộ danh mục nhà đất</span></div></a>
     </div>
     <footer>
       <b>Tuấn Đầu Bạc</b> — Bất Động Sản Long Biên – Gia Lâm · 0941 507 815<br/>
