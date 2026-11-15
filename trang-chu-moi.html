@@ -6426,7 +6426,7 @@
     lb.classList.add('open'); document.body.style.overflow = 'hidden';
   }
   function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
-  document.querySelectorAll('#gallery figure, .cat-gallery figure').forEach(function(fig){
+  document.querySelectorAll('.gallery figure, .cat-gallery figure').forEach(function(fig){
     fig.addEventListener('click', function(){ openLb(fig); });
   });
   document.getElementById('lbClose').addEventListener('click', closeLb);
